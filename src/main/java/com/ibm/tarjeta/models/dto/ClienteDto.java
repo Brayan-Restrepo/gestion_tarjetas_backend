@@ -3,14 +3,21 @@ package com.ibm.tarjeta.models.dto;
 import java.io.Serializable;
 
 public class ClienteDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
+	private Long id;
 	private String nombre;
 	private String direccion;
 	private String ciudad;
 	private String telefono;
 	
-	private static final long serialVersionUID = 1L;
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}

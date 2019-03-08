@@ -8,44 +8,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ibm.tarjeta.models.dto.AsesorDto;
 import com.ibm.tarjeta.models.dto.ClienteDto;
+import com.ibm.tarjeta.models.entity.Asesor;
 import com.ibm.tarjeta.models.entity.Cliente;
-import com.ibm.tarjeta.repository.ClienteRepository;
-import com.ibm.tarjeta.service.ClienteService;
+import com.ibm.tarjeta.repository.AsesorRepository;
+import com.ibm.tarjeta.service.AsesorService;
 
 @Service
-public class ClienteServiceImpl implements ClienteService {
+public class AsesorServiceImpl implements AsesorService {
 
 	@Autowired
-	private ClienteRepository clienteRepository;
+	private AsesorRepository asesorRepository;
 
 	private ModelMapper modelMapper;
 	
-	public ClienteServiceImpl() {
+	public AsesorServiceImpl() {
 		this.modelMapper = new ModelMapper();
 	}
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<ClienteDto> findAll() {
-		List<Cliente> clienteList = (List<Cliente>) this.clienteRepository.findAll();		
-		return clienteList.stream().map(cliente -> modelMapper.map(cliente, ClienteDto.class)).collect(Collectors.toList());
+	public List<AsesorDto> findAll() {
+		List<Asesor> asesorList = (List<Asesor>) this.asesorRepository.findAll();		
+		return asesorList.stream().map(asesor -> modelMapper.map(asesor, AsesorDto.class)).collect(Collectors.toList());
 	}
 
 	@Override
-	public boolean saveCliente(ClienteDto clienteDto) {
+	public boolean saveAsesor(AsesorDto asesorDto) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateCliente(ClienteDto clienteDto) {
+	public boolean updateAsesor(AsesorDto asesorDto) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean deleteCliente(Long id) {
+	public boolean deleteAsesor(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}

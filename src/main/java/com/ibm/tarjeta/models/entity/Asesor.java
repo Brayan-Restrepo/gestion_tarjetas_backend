@@ -10,8 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="clientes")
-public class Cliente implements Serializable {
+@Table(name="asesores")
+public class Asesor implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,14 +22,8 @@ public class Cliente implements Serializable {
 	@Size(max = 50)
 	private String nombre;
 	
-	@Size(max = 100)
-	private String direccion;
-	
-	@Size(max = 30)
-	private String ciudad;
-	
-	@Size(max = 20)
-	private String telefono;
+	@Size(max = 50)
+	private String epecialidad;
 
 	public Long getId() {
 		return id;
@@ -47,27 +41,11 @@ public class Cliente implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getEpecialidad() {
+		return epecialidad;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getCiudad() {
-		return ciudad;
-	}
-
-	public void setCiudad(String ciudad) {
-		this.ciudad = ciudad;
-	}
-
-	public String getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setEpecialidad(String epecialidad) {
+		this.epecialidad = epecialidad;
 	}
 }

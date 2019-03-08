@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ibm.tarjeta.models.dto.ClienteDto;
-import com.ibm.tarjeta.service.ClienteService;
+import com.ibm.tarjeta.models.dto.AsesorDto;
+import com.ibm.tarjeta.service.AsesorService;
 import com.ibm.tarjeta.util.ConstantesUtil;
 
 @RestController
 @RequestMapping(ConstantesUtil.URL_API)
 @CrossOrigin(value = "*")
-public class ClienteController {
+public class AsesorController {
 
 	@Autowired
-	private ClienteService clienteService;
+	private AsesorService asesorService;
 	
 	
-	@GetMapping(ConstantesUtil.CLIENTES)
-	public List<ClienteDto> listClientes() {
-		return this.clienteService.findAll();
+	@GetMapping(ConstantesUtil.ASESORES)
+	public List<AsesorDto> listAsesores() {
+		return this.asesorService.findAll();
 	}
 }
