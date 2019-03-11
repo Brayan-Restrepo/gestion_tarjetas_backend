@@ -11,6 +11,7 @@ public class ConsumoDto implements Serializable {
 	private Date fechaConsumo;
 	private String descripcion;
 	private String monto;
+	
 	public Long getId() {
 		return id;
 	}

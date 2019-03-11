@@ -12,4 +12,8 @@ public class ConstantesUtil {
 	
 	public static final String ASESORES = "/asesores";
 	
+	public static final String TARJETAS = "/tarjetas";
+	
+	public static final String CONSUMOS  = "/consumos";
+	
 }

@@ -1,6 +1,7 @@
 package com.ibm.tarjeta.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -9,9 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.tarjeta.models.dto.AsesorDto;
-import com.ibm.tarjeta.models.dto.ClienteDto;
 import com.ibm.tarjeta.models.entity.Asesor;
-import com.ibm.tarjeta.models.entity.Cliente;
 import com.ibm.tarjeta.repository.AsesorRepository;
 import com.ibm.tarjeta.service.AsesorService;
 
@@ -36,20 +35,26 @@ public class AsesorServiceImpl implements AsesorService {
 
 	@Override
 	public boolean saveAsesor(AsesorDto asesorDto) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean updateAsesor(AsesorDto asesorDto) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean deleteAsesor(Long id) {
-		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public AsesorDto findById(Long id) {
+		Optional<Asesor> asesor = this.asesorRepository.findById(id);
+		if(asesor.isPresent()) {
+			return this.modelMapper.map(asesor.get(), AsesorDto.class);
+		}
+		return null;
 	}
 
 }

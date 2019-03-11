@@ -1,6 +1,7 @@
 package com.ibm.tarjeta.models.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class TarjetaDto implements Serializable {
 
@@ -10,6 +11,7 @@ public class TarjetaDto implements Serializable {
 	private String numero;
 	private String ccv;
 	private String tipo;
+	private List<ConsumoDto> consumos;
 	
 	public Long getId() {
 		return id;
@@ -35,4 +37,11 @@ public class TarjetaDto implements Serializable {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+	public List<ConsumoDto> getConsumos() {
+		return consumos;
+	}
+	public void setConsumos(List<ConsumoDto> consumos) {
+		this.consumos = consumos;
+	}
+	
 }

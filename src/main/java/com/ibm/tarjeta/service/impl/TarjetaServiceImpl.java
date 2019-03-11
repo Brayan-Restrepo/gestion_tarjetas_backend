@@ -34,7 +34,6 @@ public class TarjetaServiceImpl implements TarjetaService {
 
 	@Override
 	public boolean saveCliente(TarjetaDto tarjetaDto) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

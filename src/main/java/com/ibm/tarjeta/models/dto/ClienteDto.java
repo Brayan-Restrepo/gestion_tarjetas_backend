@@ -1,6 +1,7 @@
 package com.ibm.tarjeta.models.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ClienteDto implements Serializable {
 
@@ -11,6 +12,7 @@ public class ClienteDto implements Serializable {
 	private String direccion;
 	private String ciudad;
 	private String telefono;
+	private List<TarjetaDto> tarjetas;
 	
 	public Long getId() {
 		return id;
@@ -41,6 +43,12 @@ public class ClienteDto implements Serializable {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public List<TarjetaDto> getTarjetas() {
+		return tarjetas;
+	}
+	public void setTarjetas(List<TarjetaDto> tarjetas) {
+		this.tarjetas = tarjetas;
 	}
 
 }

@@ -34,19 +34,16 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public boolean saveCliente(ClienteDto clienteDto) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean updateCliente(ClienteDto clienteDto) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean deleteCliente(Long id) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

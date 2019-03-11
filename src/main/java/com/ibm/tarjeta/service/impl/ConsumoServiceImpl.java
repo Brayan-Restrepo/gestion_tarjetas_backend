@@ -34,7 +34,6 @@ public class ConsumoServiceImpl implements ConsumoService {
 
 	@Override
 	public boolean saveCliente(ConsumoDto consumoDto) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

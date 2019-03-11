@@ -10,4 +10,5 @@ public interface AsesorService {
 	public boolean saveAsesor(AsesorDto asesorDto);
 	public boolean updateAsesor(AsesorDto asesorDto);
 	public boolean deleteAsesor(Long id);
+	public AsesorDto findById(Long id);
 }
