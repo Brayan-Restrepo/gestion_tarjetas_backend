@@ -8,7 +8,7 @@ public class ConstantesUtil {
 	
 	public static final String URL_API = "/api";
 
-	public static final String CLIENTES = "/clinetes";
+	public static final String CLIENTES = "/clientes";
 	
 	public static final String ASESORES = "/asesores";
 	
