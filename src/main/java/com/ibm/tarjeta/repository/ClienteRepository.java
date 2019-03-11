@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.ibm.tarjeta.models.entity.Cliente;
 
 @Repository
-public interface ClienteRepository extends CrudRepository<Cliente, String> {
+public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
 }
