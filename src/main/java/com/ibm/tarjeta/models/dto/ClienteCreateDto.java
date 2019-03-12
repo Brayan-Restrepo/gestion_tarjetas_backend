@@ -2,7 +2,7 @@ package com.ibm.tarjeta.models.dto;
 
 import java.io.Serializable;
 
-public class CrearClienteDto implements Serializable {
+public class ClienteCreateDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -10,6 +10,7 @@ public class CrearClienteDto implements Serializable {
 	private String direccion;
 	private String ciudad;
 	private String telefono;
+	
 	public String getNombre() {
 		return nombre;
 	}

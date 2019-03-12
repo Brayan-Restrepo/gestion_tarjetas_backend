@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ibm.tarjeta.models.dto.ClienteCreateDto;
 import com.ibm.tarjeta.models.dto.ClienteDto;
 import com.ibm.tarjeta.models.dto.ClienteUpDto;
 import com.ibm.tarjeta.models.entity.Cliente;
@@ -38,9 +39,9 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	@Transactional
-	public boolean saveCliente(ClienteDto clienteDto) {
-		if(Objects.nonNull(clienteDto)){
-			Cliente cliente = this.modelMapper.map(clienteDto, Cliente.class);
+	public boolean saveCliente(ClienteCreateDto clienteCreateDto) {
+		if(Objects.nonNull(clienteCreateDto)){
+			Cliente cliente = this.modelMapper.map(clienteCreateDto, Cliente.class);
 			this.clienteRepository.save(cliente);
 			return true;
 		} else {

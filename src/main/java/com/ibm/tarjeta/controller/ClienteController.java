@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.tarjeta.models.dto.ClienteCreateDto;
 import com.ibm.tarjeta.models.dto.ClienteDto;
 import com.ibm.tarjeta.models.dto.ClienteUpDto;
 import com.ibm.tarjeta.service.ClienteService;
@@ -33,8 +34,8 @@ public class ClienteController {
 	}
 	
 	@PostMapping(ConstantesUtil.CLIENTES) 
-	public boolean saveCliente(@RequestBody ClienteDto clienteDto){
-		return this.clienteService.saveCliente(clienteDto);
+	public boolean saveCliente(@RequestBody ClienteCreateDto clienteCreateDto){
+		return this.clienteService.saveCliente(clienteCreateDto);
 	}
 	
 	@PutMapping(ConstantesUtil.CLIENTES)
