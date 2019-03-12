@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.tarjeta.models.dto.ClienteCreateDto;
-import com.ibm.tarjeta.models.dto.ClienteDto;
+import com.ibm.tarjeta.models.dto.ClienteListDto;
 import com.ibm.tarjeta.models.dto.ClienteUpDto;
 import com.ibm.tarjeta.models.entity.Cliente;
 import com.ibm.tarjeta.repository.ClienteRepository;
@@ -32,9 +32,9 @@ public class ClienteServiceImpl implements ClienteService {
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<ClienteDto> findAll() {
+	public List<ClienteListDto> findAll() {
 		List<Cliente> clienteList = (List<Cliente>) this.clienteRepository.findAll();		
-		return clienteList.stream().map(cliente -> modelMapper.map(cliente, ClienteDto.class)).collect(Collectors.toList());
+		return clienteList.stream().map(cliente -> modelMapper.map(cliente, ClienteListDto.class)).collect(Collectors.toList());
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.tarjeta.models.dto.ClienteCreateDto;
-import com.ibm.tarjeta.models.dto.ClienteDto;
+import com.ibm.tarjeta.models.dto.ClienteListDto;
 import com.ibm.tarjeta.models.dto.ClienteUpDto;
 import com.ibm.tarjeta.service.ClienteService;
 import com.ibm.tarjeta.util.ConstantesUtil;
@@ -29,7 +29,7 @@ public class ClienteController {
 	
 	
 	@GetMapping(ConstantesUtil.CLIENTES)
-	public List<ClienteDto> listClientes() {
+	public List<ClienteListDto> listClientes() {
 		return this.clienteService.findAll();
 	}
 	
