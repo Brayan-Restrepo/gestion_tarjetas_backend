@@ -32,7 +32,7 @@ public class Tarjeta implements Serializable {
 	@JoinColumn(name="tarjeta_id")
 	private List<Consumo> consumos;
 	
-	@Size(max = 16)
+	@Size(max = 19)
 	private String numero;
 	
 	@Size(max = 4)

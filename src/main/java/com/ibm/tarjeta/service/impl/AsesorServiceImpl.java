@@ -1,14 +1,17 @@
 package com.ibm.tarjeta.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.apache.logging.log4j.util.Strings;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ibm.tarjeta.models.dto.AsesorCreateDto;
 import com.ibm.tarjeta.models.dto.AsesorDto;
 import com.ibm.tarjeta.models.entity.Asesor;
 import com.ibm.tarjeta.repository.AsesorRepository;
@@ -34,18 +37,39 @@ public class AsesorServiceImpl implements AsesorService {
 	}
 
 	@Override
-	public boolean saveAsesor(AsesorDto asesorDto) {
-		return false;
+	@Transactional
+	public boolean saveAsesor(AsesorCreateDto asesorCreateDto) {
+		if(Objects.nonNull(asesorCreateDto)){
+			Asesor asesor = this.modelMapper.map(asesorCreateDto, Asesor.class);
+			this.asesorRepository.save(asesor);
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
+	@Transactional
 	public boolean updateAsesor(AsesorDto asesorDto) {
-		return false;
+		Optional<Asesor> asesor = this.asesorRepository.findById(asesorDto.getId());
+		if (asesor.isPresent()) {
+			if (Strings.isNotEmpty(asesorDto.getNombre())){
+				asesor.get().setNombre(asesorDto.getNombre());
+			}
+			if (Strings.isNotEmpty(asesorDto.getEspecialidad())){
+				asesor.get().setEspecialidad(asesorDto.getEspecialidad());
+			}			
+			this.asesorRepository.save(asesor.get());			
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
-	public boolean deleteAsesor(Long id) {
-		return false;
+	@Transactional
+	public void deleteAsesor(Long id) {
+		this.asesorRepository.deleteById(id);
 	}
 
 	@Override

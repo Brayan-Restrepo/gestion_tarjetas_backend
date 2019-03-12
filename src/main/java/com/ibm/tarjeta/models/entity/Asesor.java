@@ -23,7 +23,7 @@ public class Asesor implements Serializable {
 	private String nombre;
 	
 	@Size(max = 50)
-	private String epecialidad;
+	private String especialidad;
 
 	public Long getId() {
 		return id;
@@ -41,11 +41,11 @@ public class Asesor implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getEpecialidad() {
-		return epecialidad;
+	public String getEspecialidad() {
+		return especialidad;
 	}
 
-	public void setEpecialidad(String epecialidad) {
-		this.epecialidad = epecialidad;
+	public void setEspecialidad(String especialidad) {
+		this.especialidad = especialidad;
 	}
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.tarjeta.models.dto.AsesorCreateDto;
 import com.ibm.tarjeta.models.dto.AsesorDto;
 import com.ibm.tarjeta.service.AsesorService;
 import com.ibm.tarjeta.util.ConstantesUtil;
@@ -38,9 +39,9 @@ public class AsesorController {
 	
 
 	@PostMapping(ConstantesUtil.ASESORES) 
-	public boolean saveAsesor(@RequestBody AsesorDto asesorDto){
+	public boolean saveAsesor(@RequestBody AsesorCreateDto asesorCreateDto){
 		try {
-			return this.asesorService.saveAsesor(asesorDto);
+			return this.asesorService.saveAsesor(asesorCreateDto);
 		} catch (Exception e) {
 			return false;
 		}
