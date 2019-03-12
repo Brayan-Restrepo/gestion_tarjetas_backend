@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ibm.tarjeta.models.dto.ClienteCreateDto;
+import com.ibm.tarjeta.models.dto.ClienteDto;
 import com.ibm.tarjeta.models.dto.ClienteListDto;
 import com.ibm.tarjeta.models.dto.ClienteUpDto;
 import com.ibm.tarjeta.service.ClienteService;
@@ -33,14 +34,27 @@ public class ClienteController {
 		return this.clienteService.findAll();
 	}
 	
+	@GetMapping(ConstantesUtil.CLIENTES + "/{idCliente}")
+	public ClienteDto asesor(@PathVariable("idCliente") Long idCliente) {
+		return this.clienteService.findById(idCliente);
+	}
+	
 	@PostMapping(ConstantesUtil.CLIENTES) 
 	public boolean saveCliente(@RequestBody ClienteCreateDto clienteCreateDto){
-		return this.clienteService.saveCliente(clienteCreateDto);
+		try {
+			return this.clienteService.saveCliente(clienteCreateDto);
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	@PutMapping(ConstantesUtil.CLIENTES)
 	public boolean updateCliente(@RequestBody ClienteUpDto clienteUpDto) {
-		return this.clienteService.updateCliente(clienteUpDto);
+		try {
+			return this.clienteService.updateCliente(clienteUpDto);
+		} catch (Exception e) {
+			return false;
+		}		
 	}
 	
 	@DeleteMapping(ConstantesUtil.CLIENTES + "/{idCliente}")

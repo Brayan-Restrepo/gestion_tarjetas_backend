@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ibm.tarjeta.models.dto.ClienteCreateDto;
+import com.ibm.tarjeta.models.dto.ClienteDto;
 import com.ibm.tarjeta.models.dto.ClienteListDto;
 import com.ibm.tarjeta.models.dto.ClienteUpDto;
 import com.ibm.tarjeta.models.entity.Cliente;
@@ -74,8 +75,19 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
+	@Transactional
 	public void deleteCliente(Long id) {
 		this.clienteRepository.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public ClienteDto findById(Long id) {
+		Optional<Cliente> cliente = this.clienteRepository.findById(id);
+		if(cliente.isPresent()) {
+			return this.modelMapper.map(cliente.get(), ClienteDto.class);
+		}
+		return null;
 	}
 
 }

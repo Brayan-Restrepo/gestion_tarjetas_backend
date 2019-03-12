@@ -49,6 +49,7 @@ public class AsesorServiceImpl implements AsesorService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public AsesorDto findById(Long id) {
 		Optional<Asesor> asesor = this.asesorRepository.findById(id);
 		if(asesor.isPresent()) {
